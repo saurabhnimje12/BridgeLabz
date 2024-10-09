@@ -6,6 +6,7 @@ import java.util.TreeSet;
 
 public class Collection_Set {
 
+	
 	public static HashSet<Integer> sortSet1(int[] arr) {
 		HashSet<Integer> newHashSet = new HashSet<Integer>();
 		for (Integer num : arr) {
