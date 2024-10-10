@@ -13,12 +13,11 @@ public class ReverseStack {
 
 	public static void main(String[] args) {
 		Stack stack = new Stack<Integer>();
-		stack.add(1);
-		stack.add(2);
-		stack.add(3);
-		stack.add(4);
-		stack.add(5);
-
+		stack.push(10);
+		stack.push(20);
+		stack.push(30);
+		stack.push(40);
+		stack.push(50);
 		System.out.println("Before Reverse : " + stack);
 		System.out.println("After Reverse : " + reverse(stack));
 	}
