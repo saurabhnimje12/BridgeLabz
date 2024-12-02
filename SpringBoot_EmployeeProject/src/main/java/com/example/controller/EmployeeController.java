@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -43,6 +44,11 @@ public class EmployeeController {
     @PutMapping("/updateEmp/{id}")
     public String updateEmployeeById(@PathVariable Integer id, @RequestBody DtoToEmployee employeeDto) {
         return employeeService.updateEmployeeById(id, employeeDto);
+    }
+
+    @PatchMapping("/patchEmp/{id}")
+    public String patchEmployeeById(@PathVariable Integer id, @RequestBody Map<String, Object> updates) {
+        return employeeService.patchEmployeeById(id, updates);
     }
 
     @DeleteMapping("/deleteEmp/{id}")

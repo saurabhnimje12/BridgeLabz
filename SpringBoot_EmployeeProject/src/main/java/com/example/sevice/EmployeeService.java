@@ -4,6 +4,7 @@ import com.example.dto.DtoToEmployee;
 import com.example.dto.EmployeeToDto;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public interface EmployeeService {
@@ -18,4 +19,7 @@ public interface EmployeeService {
     String deleteEmployeeById(Integer id);
 
     String deleteEmployeeAddressByAddressType(Integer id, String addressType);
+
+    String patchEmployeeById(Integer id, Map<String,Object> updates);
+
 }

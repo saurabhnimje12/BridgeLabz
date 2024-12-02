@@ -1,15 +1,13 @@
 package com.example.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.time.LocalDate;
 import java.util.List;
 
+@Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,6 +28,6 @@ public class Employee {
     private String notes;
     private Double salary;
     private String profilePic;
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Address> addresses;
 }

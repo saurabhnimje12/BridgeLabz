@@ -5,20 +5,25 @@ import com.example.dto.DtoToEmployee;
 import com.example.dto.EmployeeToDto;
 import com.example.entity.Address;
 import com.example.entity.Employee;
+import com.example.exception.CustomException;
 import com.example.repo.EmployeeRepo;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ReflectionUtils;
 
+import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-@Slf4j
+//@Slf4j
 public class EmployeeServiceImpl implements EmployeeService {
 
+    private static final Set<String> ALLOWED_FIELDS = Set.of("firstName", "lastName", "email", "salary");
     private final EmployeeRepo employeeRepo;
 
     public EmployeeServiceImpl(EmployeeRepo employeeRepo) {
@@ -34,10 +39,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         try {
             Employee employee = convertToEntity(dtoToEmployee);
             employeeRepo.save(employee);
-            log.info(" INFO Log : Employee Added Successfully");
+//            log.info(" INFO Log : Employee Added Successfully");
             str = "Employee : Employee Added Successfully";
         } catch (Exception exception) {
-            log.error("Error Log : Employee Not Saved");
+//            log.error("Error Log : Employee Not Saved");
             str = "Exception : " + exception.getMessage();
         }
         return str;
@@ -49,7 +54,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (employee.isPresent()) {
             return employee.map(this::convertToDTO); // Convert to DTO if found
         } else {
-            log.error("Error Log : Employee Is Not Present with ID {}", id);
+//            log.error("Error Log : Employee Is Not Present with ID {}", id);
             return Optional.empty();
         }
     }
@@ -93,10 +98,10 @@ public class EmployeeServiceImpl implements EmployeeService {
             emp.setAddresses(addresses);
 
             employeeRepo.save(emp);
-            log.info("INFO Log : Employee Updated Successfully with ID {}", id);
+//            log.info("INFO Log : Employee Updated Successfully with ID {}", id);
             str = "Employee updated successfully";
         } else {
-            log.error("Error Log : Employee Is Not Found with ID {}", id);
+//            log.error("Error Log : Employee Is Not Found with ID {}", id);
             str = "Employee not found with ID: " + id;
         }
         return str;
@@ -108,10 +113,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         Optional<Employee> employee = employeeRepo.findById(id);
         if (employee.isPresent()) {
             employeeRepo.deleteById(id);
-            log.info("INFO Log : Employee Deleted Successfully with ID {}", id);
+//            log.info("INFO Log : Employee Deleted Successfully with ID {}", id);
             str = "Employee deleted successfully.";
         } else {
-            log.error("Error Log : Employee is Not Found with ID {}", id);
+//            log.error("Error Log : Employee is Not Found with ID {}", id);
             str = "Employee not found with ID: " + id;
         }
         return str;
@@ -133,17 +138,46 @@ public class EmployeeServiceImpl implements EmployeeService {
                 employee.getAddresses().remove(addressToDelete.get());
 //                Employee employee = convertToEntity(employeeToDto);
                 employeeRepo.save(employee);
-                log.info("INFO Log: Address Deleted Successfully with Address-Type {}", addressType);
+//                log.info("INFO Log: Address Deleted Successfully with Address-Type {}", addressType);
                 msg = "Address deleted successfully.";
             } else {
-                log.error("ERROR Log: Address Not Found with Address-Type {}", addressType);
+//                log.error("ERROR Log: Address Not Found with Address-Type {}", addressType);
                 msg = "Address not found with Address-Type: " + addressType;
             }
         } else {
-            log.error("ERROR Log: Employee Not Found with ID {}", id);
+//            log.error("ERROR Log: Employee Not Found with ID {}", id);
             msg = "Employee not found with ID: " + id;
         }
         return msg;
+    }
+
+    @Override
+    public String patchEmployeeById(Integer id, Map<String, Object> updates) {
+        String str;
+        Optional<Employee> byId = employeeRepo.findById(id);
+        if (byId.isPresent()) {
+            Employee employee = byId.get();
+            updates.forEach((field, value) -> {
+//                if (ALLOWED_FIELDS.contains(field)) {
+
+                    Field declaredField = ReflectionUtils.findField(Employee.class, field);
+                    if (declaredField != null) {
+                        declaredField.setAccessible(true);
+                        ReflectionUtils.setField(declaredField, employee, value);}
+
+//                } else {
+//                    log.error("ERROR log : Field cannot be allowed to updated {}", field);
+//                    throw new CustomException("Field cannot be allowed to updated : " + field);
+//                }
+            });
+            employeeRepo.save(employee);
+            str = "Employee updated successfully.";
+//            log.info("INFO log : Filed Updated successfully ");
+        } else {
+            str = "Employee not found with ID: " + id;
+//            log.error("Error log : Employee not found with ID : {}", id);
+        }
+        return str;
     }
 
     private Employee convertToEntity(DtoToEmployee dtoToEmployee) {
