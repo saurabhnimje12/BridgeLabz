@@ -1,4 +1,8 @@
 package com.example.service;
 
-public class BillService {
+public interface BillService {
+
+    String updatePaymentStatus(String findByVehicleNo, String status);
+
+    String generateBill(String findByVehicleNo);
 }

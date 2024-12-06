@@ -1,4 +1,13 @@
 package com.example.service;
 
-public class ReservationService {
+import com.example.entity.Reservation;
+
+import java.util.List;
+
+public interface ReservationService {
+    String creatingNewReservation(Reservation reservation) ;
+
+    String cancelActiveReservation(String vehicleNo);
+
+    List<Reservation> getAllReservation();
 }

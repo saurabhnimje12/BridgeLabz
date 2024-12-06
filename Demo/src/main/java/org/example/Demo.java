@@ -18,9 +18,6 @@ public class Demo {
             }
             num = sum;
         }
-        try{
-            System.out.println("s");
-        }
         System.out.println(num);
 
 
