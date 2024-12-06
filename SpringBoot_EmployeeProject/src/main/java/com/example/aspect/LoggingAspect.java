@@ -12,13 +12,6 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class LoggingAspect {
-
-//    @Before("execution(* com.example.controller.*.*(..))")
-//    public void logBeforeMethodExecution() {
-//        log.info("Entering method");
-//        System.out.println("Logging before method execution");
-//    }
-
     @Before("execution(* com.example.controller.EmployeeController.*(..))")
     public void logBeforeMethod(JoinPoint joinPoint) {
         log.info("Entering method : {} , with argument : {}", joinPoint.getSignature(), joinPoint.getArgs());

@@ -5,9 +5,9 @@ import com.example.dto.DtoToEmployee;
 import com.example.dto.EmployeeToDto;
 import com.example.entity.Address;
 import com.example.entity.Employee;
-import com.example.exception.CustomException;
 import com.example.repo.EmployeeRepo;
-import lombok.extern.slf4j.Slf4j;
+import com.example.utils.EmailUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;
 
@@ -25,6 +25,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     private static final Set<String> ALLOWED_FIELDS = Set.of("firstName", "lastName", "email", "salary");
     private final EmployeeRepo employeeRepo;
+    @Autowired
+    private EmailUtils emailUtils;
 
     public EmployeeServiceImpl(EmployeeRepo employeeRepo) {
         this.employeeRepo = employeeRepo;
@@ -39,8 +41,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         try {
             Employee employee = convertToEntity(dtoToEmployee);
             employeeRepo.save(employee);
+            String msg = emailUtils.sendEmail(employee.getEmail(), "Regarding SpringBoot Mail", "Welcome To SpringBoot Mail : " + employee.getFirstName());
 //            log.info(" INFO Log : Employee Added Successfully");
-            str = "Employee : Employee Added Successfully";
+            str = "Employee : Employee Added Successfully " + " : " + " Mail Msg : " + msg;
         } catch (Exception exception) {
 //            log.error("Error Log : Employee Not Saved");
             str = "Exception : " + exception.getMessage();
@@ -160,10 +163,11 @@ public class EmployeeServiceImpl implements EmployeeService {
             updates.forEach((field, value) -> {
 //                if (ALLOWED_FIELDS.contains(field)) {
 
-                    Field declaredField = ReflectionUtils.findField(Employee.class, field);
-                    if (declaredField != null) {
-                        declaredField.setAccessible(true);
-                        ReflectionUtils.setField(declaredField, employee, value);}
+                Field declaredField = ReflectionUtils.findField(Employee.class, field);
+                if (declaredField != null) {
+                    declaredField.setAccessible(true);
+                    ReflectionUtils.setField(declaredField, employee, value);
+                }
 
 //                } else {
 //                    log.error("ERROR log : Field cannot be allowed to updated {}", field);

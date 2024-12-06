@@ -23,4 +23,8 @@ public class EmployeeException {
     public ResponseEntity<String> handleCustomException(CustomException exception) {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
     }
+
+
+
+
 }
