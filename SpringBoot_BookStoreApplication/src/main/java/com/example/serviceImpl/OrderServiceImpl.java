@@ -12,9 +12,7 @@ import com.example.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.CascadeType;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -38,7 +36,7 @@ public class OrderServiceImpl implements OrderService {
         }
 //        User user = userOptional.get();
 
-        List<Cart> cartList = cartRepo.findByUser(userId);
+        List<Cart> cartList = cartRepo.findByUser(userOptional.get());
         if (cartList.isEmpty()) {
             return "No Items in the Cart!!";
         }

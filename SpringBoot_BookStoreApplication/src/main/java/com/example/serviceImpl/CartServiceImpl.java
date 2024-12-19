@@ -67,7 +67,8 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public String removeByUserID(Long userId) {
-        List<Cart> cartList = cartRepo.findByUser(userId);
+        Optional<User> userOptional = userRepo.findById(userId);
+        List<Cart> cartList = cartRepo.findByUser(userOptional.get());
         if (!cartList.isEmpty()) {
             for (Cart cart : cartList) {
                 Book book = cart.getBook();
@@ -102,7 +103,8 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public List<CartEntityToDto> getAllCartItemsByUserID(Long userId) {
-        List<Cart> cartList = cartRepo.findByUser(userId);
+        Optional<User> userOptional = userRepo.findById(userId);
+        List<Cart> cartList = cartRepo.findByUser(userOptional.get());
         if (!cartList.isEmpty()) {
             return cartList.stream().map(this::cartToDtoConverter).collect(Collectors.toList());
         } else {
