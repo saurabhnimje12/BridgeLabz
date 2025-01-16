@@ -1,0 +1,80 @@
+2025-01-14 11:46:53 [restartedMain] INFO  c.e.SpringBootMsBsaBookApiApplication - Starting SpringBootMsBsaBookApiApplication using Java 17.0.12 with PID 3084 (D:\BrideLabz\WorkSpace\BookStoreApp\SpringBoot_MS_BSA_BookApi\target\classes started by saura in D:\BrideLabz\WorkSpace\BookStoreApp\SpringBoot_MS_BSA_BookApi)
+2025-01-14 11:46:53 [restartedMain] INFO  c.e.SpringBootMsBsaBookApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-14 11:46:53 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-14 11:46:53 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-14 11:46:55 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-14 11:46:55 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 138 ms. Found 1 JPA repository interface.
+2025-01-14 11:46:56 [restartedMain] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=2e3e9177-8f95-39d9-9c5b-7abc3ebcf308
+2025-01-14 11:46:58 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9001 (http)
+2025-01-14 11:46:58 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-14 11:46:58 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-14 11:46:58 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-01-14 11:46:58 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4773 ms
+2025-01-14 11:46:59 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-14 11:46:59 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-01-14 11:46:59 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-01-14 11:47:00 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-14 11:47:00 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-14 11:47:00 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6da493c9
+2025-01-14 11:47:01 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-14 11:47:01 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-14 11:47:01 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-01-14 11:47:01 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-14 11:47:02 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-14 11:47:02 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-14 11:47:03 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-14 11:47:04 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2025-01-14 11:47:04 [restartedMain] INFO  o.s.c.o.FeignClientFactoryBean - For 'USER-API' URL not provided. Will try picking an instance via load-balancing.
+2025-01-14 11:47:10 [restartedMain] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-01-14 11:47:10 [restartedMain] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-01-14 11:47:10 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-01-14 11:47:11 [restartedMain] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-01-14 11:47:11 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-01-14 11:47:11 [restartedMain] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-01-14 11:47:11 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-01-14 11:47:11 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-01-14 11:47:11 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-01-14 11:47:11 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-01-14 11:47:11 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-01-14 11:47:11 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-01-14 11:47:11 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-01-14 11:47:11 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-01-14 11:47:11 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-01-14 11:47:11 [restartedMain] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-01-14 11:47:11 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1736835431695 with initial instances count: 2
+2025-01-14 11:47:11 [restartedMain] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application BOOK-API with eureka with status UP
+2025-01-14 11:47:11 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1736835431715, current=UP, previous=STARTING]
+2025-01-14 11:47:11 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_BOOK-API/LAPTOP-D3F0COCA:BOOK-API:9001: registering service...
+2025-01-14 11:47:11 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9001 (http) with context path '/'
+2025-01-14 11:47:11 [restartedMain] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 9001
+2025-01-14 11:47:11 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_BOOK-API/LAPTOP-D3F0COCA:BOOK-API:9001 - registration status: 204
+2025-01-14 11:47:11 [restartedMain] INFO  c.e.SpringBootMsBsaBookApiApplication - Started SpringBootMsBsaBookApiApplication in 19.166 seconds (process running for 20.205)
+2025-01-14 11:47:12 [registrationTask1] WARN  d.c.b.a.c.r.ApplicationRegistrator - Failed to register application as Application(name=BOOK-API, managementUrl=http://LAPTOP-D3F0COCA:9001/actuator, healthUrl=http://LAPTOP-D3F0COCA:9001/actuator/health, serviceUrl=http://LAPTOP-D3F0COCA:9001/) at spring-boot-admin ([http://localhost:1111//instances]): I/O error on POST request for "http://localhost:1111/instances": Connect to http://localhost:1111 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information. Further attempts are logged on DEBUG level
+2025-01-14 11:48:42 [registrationTask1] INFO  d.c.b.a.c.r.ApplicationRegistrator - Application registered itself as 74e761df559d
+2025-01-14 11:48:42 [http-nio-9001-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-14 11:48:42 [http-nio-9001-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-14 11:48:42 [http-nio-9001-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2025-01-14 11:52:11 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-01-14 11:57:11 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-01-14 12:02:11 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-01-14 12:07:11 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-01-14 12:12:11 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-01-14 12:17:11 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-01-14 12:22:11 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-01-14 12:26:19 [http-nio-9001-exec-5] INFO  com.example.aspect.LoggingAspect - Entering method : ResponseEntity com.example.controller.BookJwtController.addBook(String,DtoToBookEntity) , with argument : [ADMIN, com.example.dto.DtoToBookEntity@54c26c66]
+2025-01-14 12:26:20 [http-nio-9001-exec-5] INFO  com.example.aspect.LoggingAspect - Existing method : ResponseEntity com.example.controller.BookJwtController.addBook(String,DtoToBookEntity) , with result : <200 OK OK,Book Added Successfully,[]>
+2025-01-14 12:27:11 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-01-14 12:27:14 [http-nio-9001-exec-7] INFO  com.example.aspect.LoggingAspect - Entering method : ResponseEntity com.example.controller.BookController.getBook(Long) , with argument : [1]
+2025-01-14 12:27:14 [http-nio-9001-exec-7] INFO  com.example.aspect.LoggingAspect - Existing method : ResponseEntity com.example.controller.BookController.getBook(Long) , with result : <200 OK OK,com.example.dto.BookEntityToDto@6d78b147,[]>
+2025-01-14 12:32:11 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-01-14 12:57:43 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=23m41s284ms636µs300ns).
+2025-01-14 13:18:00 [http-nio-9001-exec-8] WARN  o.s.b.a.health.HealthEndpointSupport - Health contributor org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator (db) took 10338ms to respond
+2025-01-14 13:18:10 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20m30s105ms608µs).
+2025-01-14 13:20:20 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
