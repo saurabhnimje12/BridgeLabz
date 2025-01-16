@@ -48,8 +48,17 @@ public class CartServiceImpl implements CartService {
         return "Book Added to Cart Successfully!!";
     }
 
+<<<<<<< HEAD
     @Override
     public String removeFromCart(Long userId, Long cartId) {
+=======
+    // Invalid token
+    @Override
+    public String removeFromCart(Long userId, Long cartId) {
+        if (userRepo.findById(userId).isEmpty()){
+            return "USER NOT FOUND TO DELETE CART!!";
+        }
+>>>>>>> 28b168b246af6591139ee352e390a3a82f0c33ec
         Optional<Cart> optionalCart = cartRepo.findById(cartId);
         if (optionalCart.isPresent() && userId.equals(optionalCart.get().getUser().getUserId())) {
 //            Cart cart = optionalCart.get();
@@ -58,7 +67,11 @@ public class CartServiceImpl implements CartService {
 //            Book book = cart.getBook();
 //            book.setBookQuantity(book.getBookQuantity() + cart.getCartQuantity());
 //            bookRepo.save(book);
+<<<<<<< HEAD
             cartRepo.deleteById(optionalCart.get().getCartId());
+=======
+            cartRepo.delete(optionalCart.get());
+>>>>>>> 28b168b246af6591139ee352e390a3a82f0c33ec
             return "Remove From Cart Successfully";
         } else {
             return "Enter a Valid Details : Token No | CartId";
@@ -70,11 +83,21 @@ public class CartServiceImpl implements CartService {
         Optional<User> userOptional = userRepo.findById(userId);
         List<Cart> cartList = cartRepo.findByUser(userOptional.get());
         if (!cartList.isEmpty()) {
+<<<<<<< HEAD
             for (Cart cart : cartList) {
                 Book book = cart.getBook();
                 book.setBookQuantity(book.getBookQuantity() + cart.getCartQuantity());
                 bookRepo.save(book);
             }
+=======
+//            for (Cart cart : cartList) {
+//                Book book = cart.getBook();
+//                book.setBookQuantity(book.getBookQuantity() + cart.getCartQuantity());
+//                bookRepo.save(book);
+//            }
+
+
+>>>>>>> 28b168b246af6591139ee352e390a3a82f0c33ec
             cartRepo.deleteAll(cartList);
             return "All Cart Deleted for User ID: " + userId;
         } else {

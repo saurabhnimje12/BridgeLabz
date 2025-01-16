@@ -41,4 +41,8 @@ public class BookJwtController {
             return new ResponseEntity<String>("Token is NOT Valid to Update Book", HttpStatus.NOT_FOUND);
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 28b168b246af6591139ee352e390a3a82f0c33ec
