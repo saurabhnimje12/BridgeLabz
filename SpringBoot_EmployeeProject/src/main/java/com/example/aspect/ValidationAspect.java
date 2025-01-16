@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class ValidationAspect {
-
     @Before("execution(* com.example.controller.EmployeeController.addEmployee(..)) && args(dtoToEmployee)")
     public void validateAddEmployee(Object dtoToEmployee) {
         if (dtoToEmployee == null) {

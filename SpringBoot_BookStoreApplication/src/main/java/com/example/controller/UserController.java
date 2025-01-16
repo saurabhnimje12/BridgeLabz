@@ -41,7 +41,8 @@ public class UserController {
         if (userOptional.isPresent()) {
             return ResponseEntity.ok(new JwtResponse(tokenUtility.createToken(userOptional.get().getUserId(), userOptional.get().getRole())));
         } else {
-            return new ResponseEntity<>("User login not successfully", HttpStatus.ACCEPTED);
+            return new ResponseEntity<>("User NOT login", HttpStatus.ACCEPTED);
         }
     }
 }
+
